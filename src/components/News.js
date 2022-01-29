@@ -11,7 +11,7 @@ export class News extends Component {
         super();
         this.state = {
             articles: [],
-            loading: true,
+            loading: false,
             page: 1,
             totalResults: 0
         }
@@ -109,7 +109,7 @@ export class News extends Component {
         this.setState(
             {
                 articles: this.state.articles.concat(parsedData.articles),
-                totalResults: parsedData.totalResults
+                loading : false
             }
         );
     }
@@ -118,7 +118,7 @@ export class News extends Component {
         return (
             <>
                 <h2 className="text-center mx-2">NewsMonkey - Top Headlines</h2>
-                {this.state.loading && <Spinner />}
+                {/* {!this.state.loading && <Spinner />} */}
                 <InfiniteScroll
                     dataLength={this.state.articles.length}
                     next={this.fetchMoreData}
@@ -126,8 +126,6 @@ export class News extends Component {
                     loader={<Spinner />}
                 >
                     <div className="container">
-
-
                         <div className="row">
                             {this.state.articles.map((element) => {
                                 return (
@@ -144,9 +142,6 @@ export class News extends Component {
                 <button disabled={this.state.page <= 1} type="button" className="btn btn-dark" onClick={this.handlePrevClick}> &larr; Previous</button>
                 <button disabled={this.state.page + 1 >= Math.ceil(this.state.totalResults/this.state.pageSize)} type="button" className="btn btn-dark" onClick={this.handleNextClick}>Next &rarr;</button>
             </div> */}
-
-
-
             </>
         )
     }

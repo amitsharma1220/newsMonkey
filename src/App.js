@@ -1,7 +1,6 @@
 import './App.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import LoadingBar from 'react-top-loading-bar'
-
 import React, { Component } from 'react';
 import Navbar from './components/Navbar';
 import News from './components/News';
