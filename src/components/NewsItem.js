@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 
-export class NewsItem extends Component {
-  render() {
-    let { title, description, imageURL, newsURL, author, date, source } = this.props;
+const NewsItem = (props) => {
+
+    let { title, description, imageURL, newsURL, author, date, source } = props;
     return (
       <div className="card my-4" style={{ width: '18rem' }}>
-        <span className="position-absolute top-0  translate-middle badge rounded-pill bg-danger">{source}</span>
+        <span className="position-absolute top-0 translate-middle badge rounded-pill bg-danger" style={{left:'40px'}}>{source}</span>
         <img src={imageURL} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
@@ -15,7 +15,6 @@ export class NewsItem extends Component {
         </div>
       </div>
     )
-  }
 }
 
 export default NewsItem;
